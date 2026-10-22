@@ -1,0 +1,246 @@
+{
+  "run_ablation.sh": {
+    "before": "b75cecf31d540a5e20f1708ca1d374e511ce9344b1d8a6caf99e5d711a7b02cf",
+    "after": "a33d006b1c1ed5f22cfe91428d5ac8c39469cedf0af8770d0e50043c44020166"
+  },
+  "run_all_datasets.sh": {
+    "before": "f52ebd94606500e3d197684ae078ab150e5d1306613325088bb825abebbe59dc",
+    "after": "767d97e928c91b131a372b0938cbfda1a2d0a498215d6794c4d9ae04893e150c"
+  },
+  "train.py": {
+    "before": "da22ca8574e6b1dd5ff059f2c9a5bf79b13169783e6c194d3087a81a68e6c49b",
+    "after": "7771d9df83116180008b42a4b04a7b37ed48b3b8d3195d3b7e29cb8d0708c0f4"
+  },
+  "baselines/run_baselines.py": {
+    "before": "a21341e586c9c7c7959dc340418c9b3c939a12b4cc40f7fb9c0898ced276cc5f",
+    "after": "3ee5addd86706802c122b53aab67834786dcbdfb12d552d18e6876d7a7a89d17"
+  },
+  "baselines/run_baselines.sh": {
+    "before": "7950d781661445e2f9b4fe56aed63520cc97f350d6a5dcb75f09f80e07cfe9d9",
+    "after": "41e3bd1d9b39e416875b7c9e1f6e589cbf24679ede1264a3726c4a666d75fafb"
+  },
+  "tests/test_cosmx_component_ablation.py": {
+    "before": "96c802f9a303221538ad452d5d7a19c0b64c213834d8debda12460436560f831",
+    "after": "4d9d4ac6a517d158971f60bfadb521b589b6b79b92f82feee363abd606372323"
+  },
+  "experiments_analysis/ablation/run_cosmx_all_three_ablation.py": {
+    "before": "61d93009f224ef5198e085917276ee207d248cac43f9027f2ce336e0c1b2185b",
+    "after": "ef2a57d3119f4c0a714f38eb93b671801f572f5ead8846950f3fbb27d87b9704"
+  },
+  "experiments_analysis/ablation/run_cosmx_component_ablation.py": {
+    "before": "81fc7aeed14e3a0f014be26e158adc035cff00e062e5cc5a8500d1b6b7ed5691",
+    "after": "ab06ebfba99bb670470e66be0da19b4ffa50c27bae56f8a1c279ebc6e8c66b0f"
+  },
+  "experiments_analysis/clusterer_sensitivity/clusterer_common.py": {
+    "before": "01db0d1f9c80c14c93735ae48ef25a5a5909aca11e792e835e13522ef8ee7a7d",
+    "after": "c81929f606eabc0db71b8a88f72d33c8167b7095c73c33b8b924a4f11e1d7495"
+  },
+  "experiments_analysis/cortical_depth_prediction/run_task_b_cortical_depth.py": {
+    "before": "2e0d8aa28c6b7233220148d29591d3be9c25db1f8c11f3919eeca0523ddb9aab",
+    "after": "e4763e71cfd7e6111a3096be30f9553565bad6b46080a8a01f6a657c118f129c"
+  },
+  "experiments_analysis/infer_full_slice/infer_d028_region1_full_slice.py": {
+    "before": "8cfa6e6010a7aa74b1ef35b46d61befb2455c91f6945c702624e2f7d5892630a",
+    "after": "4354458ac5c1288b5cb1eafb0430a3a738aafbebc111713e9f7e0c8c4afada16"
+  },
+  "experiments_analysis/niche_composition_prediction/run_task_a_composition.py": {
+    "before": "f16e9e2c97828e2b34e3f6c82522a228833333b94d304b9f9567cee7c4d88a97",
+    "after": "417991c34afb3fa7ab29c425e96433415ac610917ee6eb9eb7f211f0ff99991a"
+  },
+  "experiments_analysis/plot_figures/plot_014_embeddings.py": {
+    "before": "3c2a60c59269cb5e052d3358c77583da13e85ee151f37f5867ebbb04a4804e6f",
+    "after": "ae090a077a7dde319c1b73fc60df6b554b8d38bce2ab2013aff6f06cbdd25b5f"
+  },
+  "experiments_analysis/plot_figures/plot_all_methods_full_slice_domains.py": {
+    "before": "b61051ddaa0932fb7428d3ad1da319c1bc361e3235c494cd0e25a9eeea6700f6",
+    "after": "67ad13a828d1415cacbb38d8c041b82dbbabbada7f88db5619413f8b87197ac8"
+  },
+  "experiments_analysis/plot_figures/plot_combined_prediction_probes.py": {
+    "before": "2460f7b5d0b1d7f1ed7968c1874e42005fa4815ecd80407ee9894a374d29ef00",
+    "after": "f8437a6dac2ede21c62e4486500f37db67aa58566b8428747735f96aad492801"
+  },
+  "experiments_analysis/plot_figures/plot_cross_platform_benchmarks.py": {
+    "before": "91ff5dc0899f28aa483a843da81424597be5ee653db5da7fbe9aad57a7aad112",
+    "after": "ee22e4fb13df528bde82736f453e09d7a87d4b773b4503aa785d270fc8e45e45"
+  },
+  "experiments_analysis/plot_figures/plot_neighborhood_composition.py": {
+    "before": "ec0499859b9b35c893e40e8afbee8487994e74076a02be5162922cc2afa02533",
+    "after": "2ede8897f8cb79448924e5a6b940bd0e19901adb0feb088293c60b00dd93eca1"
+  },
+  "experiments_analysis/plot_figures/plot_seaad_spatial_domains.py": {
+    "before": "17fd7daa810f692085f1224b1bc5420db30045eab2133031d1962235e85ee2f4",
+    "after": "0580e7d93386dc2f03ddff5e38e0f62612bcdcbd988e6290f7ca3cae3b72aebd"
+  },
+  "experiments_analysis/plot_figures/plot_supp_all_methods_panels.py": {
+    "before": "dd45446d41c32c5f0be8a40235291073bc130d4a65b36724982350fdea2e25c0",
+    "after": "c88120136631fd7c9c08f3a4cf9a3adca3dcffff57de96c6acadc504d74e63c7"
+  },
+  "experiments_analysis/plot_figures/plot_supp_fibro_niche_expression.py": {
+    "before": "9fc788661a3e9b4df61e5329f4c66709d319d382b5eadb56f67b8a799a16fefd",
+    "after": "ca33386c3bbfc8c707d0cf24f3d05ff749ccebbaa7384b2d2aa80493938ee8c9"
+  },
+  "experiments_analysis/task_c_gene_programs/prepare_task_c.py": {
+    "before": "6b87941cc44c4da8b404f6345bec0dcd3bd9d822d479a0f57cdc8658d42f863c",
+    "after": "8ee3300d42c9efe2dbfbd2c5a4d601fe3282de016cb077db0e12ab6d3a1ca967"
+  },
+  "experiments_analysis/task_c_gene_programs/run_task_c_formal.py": {
+    "before": "9d52b650d1916cee6ba6103145c480369bc4fc72b39ae407e5abaff6fbb1d0b2",
+    "after": "34cdc6cffe7a6a4e2fdff34c18b1f659e7983643be19a21bcf4f2ff924922180"
+  },
+  "experiments_analysis/transductive_adaptation/eval_skin_all_methods_true_k.py": {
+    "before": "5c3abc072da23eefecf54225bfcc8e73efdd4b3a1486ef163b2c9771e4e64691",
+    "after": "28d857c6e1354b096a5a6d3a1fe97bef6f9674650fbe9fcfe84284e74e235d8c"
+  },
+  "experiments_analysis/transductive_adaptation/skin_transductive_common.py": {
+    "before": "db7a8b541bb942f23fd37eb9dbd495a229312382c9e6a9ef25b76a182dd42118",
+    "after": "673752b35c123b680989dbd984d3084175b3231d4d79b5be1668401176c3cfed"
+  },
+  "experiments_analysis/transductive_adaptation/test_skin_transductive_defenses.py": {
+    "before": "073d384bb77e31a9db8460573f8a155acb414f096aac52191be32be4e13e6234",
+    "after": "2366320a06e19559e4f1ec76510e0a0b3aaa3ea510157aa45edf13a2569bfa8e"
+  },
+  "scripts/benchmark/build_cosmx_cohorts.py": {
+    "before": "c6ad5a4302cebc09ff03e3dfdff5935d58e43fb47ac6c91adb235f438f1c6c2e",
+    "after": "bcf80dec5a815e08655d01b97615b689e115c8b705c283e1e3d990a804132e38"
+  },
+  "scripts/benchmark/build_human_skin_contracts.py": {
+    "before": "723515d3eee0ca1d19b37576b0fd2eb7c469fb5fa97dbf3c7e2500b0139faaff",
+    "after": "0f87418b2bc96c060321c1f00711840065f73f5186267f6d674c18452f94c88d"
+  },
+  "scripts/benchmark/build_sea_ad_cohorts.py": {
+    "before": "5f755b5cf5fe66745bf63f6554a2851033b1ef4e16dcd336a5b0c66055cc29c7",
+    "after": "0b10e16ac57dbd4d9158e346ccbe1f730baba04fc6f5ac91f493168b28668287"
+  },
+  "scripts/benchmark/build_xenium_audit_manifest.py": {
+    "before": "ccca12e58e83dbeac433bd4fd3b99ba55825367793a5763e294e857d356f1a7e",
+    "after": "ecb5a9240b76c2589efe186fa25414021f0bbb8819a844f18d26ff2ae70c1035"
+  },
+  "scripts/benchmark/build_xenium_cohorts.py": {
+    "before": "18ab92ca5fc4f9384230b7ea5af8061ebe88da3370bf6da6c1392e9922ad9f6d",
+    "after": "84f3756722bc807a2984c7c2820cfd3cd9bb745bd9c416446ce309430ca080e1"
+  },
+  "scripts/benchmark/build_xenium_graphs.py": {
+    "before": "16a897799a1e2510df04626f73578e65c80bee4304b17d0bf26ffad7f7bbd1ee",
+    "after": "9b628d8c01e35c11513a7d409d9a03fcece83e5124d8cef891b2de4011c0a84f"
+  },
+  "scripts/benchmark/eval_cosmx_stability.py": {
+    "before": "af4feda41d6c1eedad2d4d3a64ea189a119f7859cf02b7b49f26115cfaa47b26",
+    "after": "14f459469f2b23795463820bbd3938e9cea040d9cd90f777929e6567fc1af732"
+  },
+  "scripts/benchmark/eval_freqniche_champion.py": {
+    "before": "4c0cde339c06348fcbb9c733eaf84cba62666211ca53c8ce7011af7f377c60cb",
+    "after": "4e3793353f9f22e12cf41e19627f7e1a88a88802b3746c1843414a0253133b5a"
+  },
+  "scripts/benchmark/eval_sea_ad_stability.py": {
+    "before": "cb3adbd86d3f48ff2f8b9a7b0d67bbfc6859b66ccb016a75a728e3c9491aeb2b",
+    "after": "4bf5df449759c12b8c4fad11b02610f1fef6550351deb26dbdc7c23069647cf3"
+  },
+  "scripts/benchmark/eval_xenium_stability.py": {
+    "before": "183869c7e8a496756526adc26aa126550c22003d5768275f741e676c8fb10d38",
+    "after": "7ac93e004f229642be9ae6eb58193f2a57dbba231d5bb71646fbc0550e72cf16"
+  },
+  "scripts/benchmark/eval_xenium_test.py": {
+    "before": "1169c00877c0c7901c4160457a061f46f068dfd82b9e2b686464c396e9dd1c8e",
+    "after": "1626ce7f32614e118c3161557131eca227a5b35e586f026279bae5e90104e1af"
+  },
+  "scripts/benchmark/export_cosmx_table6.py": {
+    "before": "13fe23a3c9e2ab84c866a12827d77268e019b5bca9309b3e7490cf5d90f33782",
+    "after": "aef616595a4d5c1b03253f52c0ca92ab5245d6c6209eb5a35393d607808aa41e"
+  },
+  "scripts/benchmark/export_full_slice_summary.py": {
+    "before": "5e2e2e4bf7780403d85afd73ddb6f50dad97b5d2d417711510d082421142d3c2",
+    "after": "8003d3982771db30fd35f1687456098d072ffa7ce9c65f1e9133b65796ab8532"
+  },
+  "scripts/benchmark/export_sea_ad_table5.py": {
+    "before": "af5918767948b827e8e4acf3c8be83921a7ecce6a1e63d96a613bc9e3b652d6c",
+    "after": "28315dbbc216279ecb4ba9cd0ce14d3b27e35e379334d4c0d8462b4f3ae59d55"
+  },
+  "scripts/benchmark/fit_cosmx_whitener.py": {
+    "before": "bd102d38d1c9c0086e495200c442cc58697273ad353ddcf2d77d80dfbf0d90d0",
+    "after": "557e079085f7c15630cff2d9905a7490bed7950dda50c06dde8080f1ffef11be"
+  },
+  "scripts/benchmark/fit_sea_ad_whitener.py": {
+    "before": "90d43a2ec153fca73086ffd39fc274683ac1c0897125b7c6fc417e4973a13d80",
+    "after": "c5526b635614a23c28b160f22d505dae3165407ee9ea1578a6121af3d4dbe25f"
+  },
+  "scripts/benchmark/fit_xenium_whitener.py": {
+    "before": "2f37dd065b5b6aca4ef420f0c0baf25cf26d48d5ad4af1538c0985ec91328eee",
+    "after": "aa888d0bce64bd709b04a4454a45ebb4d3a24a3403ac9decd3161fd421653de1"
+  },
+  "scripts/benchmark/generate_table7_synthesis.py": {
+    "before": "5c6cd1bed7df3989445b8fc350f708b2943be45afde98a2c7287ad75d1ce97c0",
+    "after": "465b9b299c151161c04109520a60e4c20c590ed3ab14be5840f9115811ff9195"
+  },
+  "scripts/benchmark/prepare_full_slice_manifests.py": {
+    "before": "bcc8783c8df9c4cfddeba3ecab11344a4584ced64911f927821abd84ab32d381",
+    "after": "5e1ccdac0d3cdc0a7c21de984d2991547f22511c8e8ce2498e79590042735193"
+  },
+  "scripts/benchmark/recompute_final_readouts.py": {
+    "before": "f8a04904d4eb36a58505f0f99b990f183a7bb3ee3d1e2aef7375918cd77f8df8",
+    "after": "4876386cfc5aed574631a93fe1cb3dbd6c3456925da3aea9347e3f5807af0102"
+  },
+  "scripts/benchmark/run_banksy_benchmark.py": {
+    "before": "07b218ab29b729ce00207767fb15b163bccabbb0594c1c6ce4094107f7fec45f",
+    "after": "abb34a0498d57e7a8c2da460fe28570513d7df296c4f27b52e1f1bad0c663b79"
+  },
+  "scripts/benchmark/run_cellcharter_benchmark.py": {
+    "before": "724b40b41d3f65aed4f4b6e61308bce1e4c5685c71d80fd02c89993d18c8b04f",
+    "after": "ddd3b6b853d27cec7f4bf51418d2a2f59e23da50bd10c080661e9b6bb0b5a121"
+  },
+  "scripts/benchmark/run_cellniche_benchmark.py": {
+    "before": "7ae7f8f54730c1e8eead87ad5b5a3409b406d561b2f3ba9962f987bfc9f2fef4",
+    "after": "79775c4b6f8da449495f41ae02f5b1c7a47360f283a579a08bd3f3e23822d3de"
+  },
+  "scripts/benchmark/run_cosmx_baselines.py": {
+    "before": "b5b770c6f2a7682130b5e1e96038d05ff90f540309c47990ea4d3d2ba4706962",
+    "after": "688da87ac4bdbd2c78688002f27afab337b626a0e2798962a93904dd3eba4029"
+  },
+  "scripts/benchmark/run_human_skin_full_slice_baselines.py": {
+    "before": "fa43b8ca453c508a09b0386b8689155df3736fa5d8f1864b26abafe5d52ec518",
+    "after": "3e7294d5dd221238404e86060f64672f3622cbc7588276a4ff7ec919af5beca6"
+  },
+  "scripts/benchmark/run_human_skin_refinement.py": {
+    "before": "6fe98bea528cb1c05ff910fe992dcbfbd7eadbd4066f07991c4cd0415e255b68",
+    "after": "7c6f22fd1389e991efdefae7e5fa06fc7aecf2492ba20249668a80b254e54a09"
+  },
+  "scripts/benchmark/run_sea_ad_baselines.py": {
+    "before": "5908bff41ee59b16e395a169a339dc84a9fcbb21af1d9b05ab9bf4f7f2963902",
+    "after": "723f87772d45fa94873f831cc265bd7160dc05e04af510bcc700ac050dc01390"
+  },
+  "scripts/benchmark/run_stagate_benchmark.py": {
+    "before": "b2d1f82c2eddfbd0ca4ddce67cfcd5fc69a2fec064a77636cb69bfe23e742f39",
+    "after": "6f70c72ffc400e1a41ff6eb1f55924a0c6f256e0c5f60f54d078f541216c1db8"
+  },
+  "scripts/benchmark/run_xenium_baselines.py": {
+    "before": "d26e289f4a6cf0cde56dc5babb6ad8af75212186d5abc08ca335e37271992cc5",
+    "after": "8cd586f2df2b30b7f45e774734651f9bc4b35f737aa6769828cf39d977a85b8e"
+  },
+  "scripts/benchmark/select_full_slice_resolutions.py": {
+    "before": "5dfe9d2f0d76b9d1f10ceab7521cbc256e881011f86433aa7df6b87a6eccf963",
+    "after": "2518210acafaafbd939dd472d93cf21569516bdcf42cdc7062b2aa4ce3b00bad"
+  },
+  "scripts/benchmark/train_cosmx.py": {
+    "before": "93a30941188e974b8118df83d2848014a729d30108fe39faf5a33a1fc54813bb",
+    "after": "e16a85a1694c52b18d65fed13a078c18696c9280a73b11b061681d83f8157dd3"
+  },
+  "scripts/benchmark/train_sea_ad.py": {
+    "before": "cfc0adc17add893f0c98ab7fb99b4a3dfe96beb860f536836503aff6bd794715",
+    "after": "a76aac698cb4f5d2bc339cc374397ed6efe809d5f322d5a5ea7bfa0505df4942"
+  },
+  "scripts/benchmark/train_xenium.py": {
+    "before": "d1d11e3f06b31b0cc87d7c489cbb0dd7ca9e80c9d7ea9e4dcb51c86eaf6ba86a",
+    "after": "43a3b205be2604a6e193ac5d7f0ac5d6e1a2be9cd2d958932604ce6d75857179"
+  },
+  "src/benchmark/evaluation_w24.py": {
+    "before": "bfb22119b1a4f4de1b4825be7907aec1f5ef80fc40fe774532249240fb51cc9d",
+    "after": "d054d39b2210028fabe6e7d23c89fb8b78b0a24f1f50dce32b5572ec4c5fb027"
+  },
+  "src/freqniche_st/human_skin_backend.py": {
+    "before": "6614b7ccd0bf80a3936475272f656aee3a6c69d57f956871962931a4b2378e41",
+    "after": "768ca5942b7980a7d551ea592583a3c089dc2d4e3361cc3af23c8cd29295f8f0"
+  },
+  "src/freqniche_st/runtime_paths.py": {
+    "before": "7ecba91b5a32eb3246a4f2616a23b1f48a7aab47baf750fcb9a2061c45697b93",
+    "after": "911201d24b2c977004ea484bdfe91892065d039efec521c80f23e021b39e485b"
+  }
+}

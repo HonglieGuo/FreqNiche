@@ -1,0 +1,51 @@
+schema_version: 2
+updated: 2026-09-28
+
+policy:
+  vendor_sources_are_read_only: true
+  project_adapters: src/benchmark/adapters
+  output_root: baselines/Baselines_outputs/runs
+  metric_ledger: baselines/result_baselines.csv
+
+environments:
+  local_baselines:
+    interpreter: ~/anaconda3/envs/FreqNiche-baselines-sm120-pt28/bin/python
+  local_cellcharter:
+    interpreter: ~/anaconda3/envs/FreqNiche-cellcharter-sm120/bin/python
+  local_spatial:
+    packages: [louvain==0.8.2, igraph==0.11.9]
+    interpreter: ~/.venvs/FreqNiche-spatial-baselines/bin/python
+
+methods:
+  banksy:
+    source: baselines/Banksy_py
+    adapter: src.benchmark.adapters.banksy.OfficialBANKSYAdapter
+    datasets: [human_skin, sea_ad, cosmx_nsclc, xenium_prime5k]
+  cellcharter:
+    source: baselines/cellcharter
+    adapter: src.benchmark.adapters.cellcharter.CanonicalCellCharterAdapter
+    datasets: [human_skin, sea_ad, cosmx_nsclc, xenium_prime5k]
+  cellniche:
+    source: pip:cellniche==0.1.8
+    adapter: src.benchmark.adapters.cellniche.OfficialCellNicheAdapter
+    datasets: [human_skin, sea_ad, cosmx_nsclc]
+  stagate:
+    source: baselines/STAGATE_pyG
+    adapter: src.benchmark.adapters.stagate.OfficialSTAGATEAdapter
+    datasets: [human_skin, sea_ad, cosmx_nsclc, xenium_prime5k]
+  sedr:
+    source: baselines/SEDR/SEDR
+    adapter: src.benchmark.adapters.legacy_spatial.fit_official_embedding
+    datasets: [human_skin, sea_ad, cosmx_nsclc]
+    protocol: transductive_center_only_donor_wise
+  graphst:
+    source: baselines/GraphST/GraphST
+    adapter: src.benchmark.adapters.legacy_spatial.fit_official_embedding
+    datasets: [human_skin, sea_ad, cosmx_nsclc]
+    protocol: transductive_center_only_donor_wise
+  spagcn:
+    source: baselines/SpaGCN/SpaGCN_package/SpaGCN
+    adapter: src.benchmark.adapters.legacy_spatial.fit_official_embedding
+    datasets: [human_skin, sea_ad, cosmx_nsclc]
+    protocol: transductive_center_only_donor_wise
+    extra_dependency: isolated Python with louvain==0.8.2 and igraph==0.11.9

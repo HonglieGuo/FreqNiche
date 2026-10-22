@@ -1,0 +1,31 @@
+model:
+  radius_um: 50.0
+  sigma_um: 16.6667
+  k_max: 64
+  rho: 0.5
+  p_center_mask: 0.3
+  m_max: 32
+  hidden_dim: 128
+  n_encoder_layers: 3
+  n_diffusion_layers: 2
+  n_heads: 8
+  diffusion_timesteps: 50
+  learning_rate: 0.001
+  weight_decay: 0.001
+  covariance_weight: 0.04
+
+training:
+  seeds: [42, 123, 2024]
+  max_epochs: 50
+  patience: 7
+  batch_size: 64
+  min_delta: 0.0001
+
+evaluation:
+  clusterer: leiden
+  neighbors: 15
+  resolutions: [0.2, 0.4, 0.6, 0.8, 1.0]
+  validation_bootstraps: 10
+  validation_subsample_ratio: 0.8
+  min_clusters: 5
+  max_clusters: 25

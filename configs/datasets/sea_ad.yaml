@@ -1,0 +1,7 @@
+id: sea_ad
+display_name: SEA-AD MTG MERFISH
+technology: MERFISH
+data_path: datasets/h5ad/sea_ad/sea_ad_mtg_merfish.h5ad
+splits_path: datasets/h5ad/sea_ad/donor_splits.csv
+backend: sea_ad
+supports_grid: [max_epochs, patience, batch_size, min_delta, k_max, rho, p_center_mask, m_max, hidden_dim, n_encoder_layers, n_diffusion_layers, n_heads, diffusion_timesteps, learning_rate, weight_decay, covariance_weight]

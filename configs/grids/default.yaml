@@ -1,0 +1,22 @@
+# Each list is expanded as a Cartesian product. Keep a single value for the
+# frozen manuscript configuration; add values deliberately for Validation-only
+# tuning runs. Test evaluation is disabled by default whenever >1 candidate is
+# present.
+max_epochs: [50]
+patience: [7]
+batch_size: [64]
+min_delta: [0.0001]
+# All four datasets: uncomment any dimensions to tune them on Validation.
+# Keep the Cartesian product small; each combination trains all selected seeds.
+# k_max: [48, 64]
+# m_max: [16, 32]
+# rho: [0.4, 0.5]
+# p_center_mask: [0.2, 0.3]
+# hidden_dim: [128, 192]
+# n_encoder_layers: [2, 3]
+# n_diffusion_layers: [2, 3]
+# n_heads: [4, 8]  # each value must divide every chosen hidden_dim
+# diffusion_timesteps: [30, 50]
+# learning_rate: [0.0005, 0.001]
+# weight_decay: [0.001, 0.002]
+# covariance_weight: [0.02, 0.04]

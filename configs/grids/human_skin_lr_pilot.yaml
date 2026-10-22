@@ -1,0 +1,5 @@
+# A small, Validation-only pilot. Each candidate uses the same seed and budget.
+# This is for search-pipeline verification, not a final 3-seed model comparison.
+learning_rate: [0.0005, 0.001]
+max_epochs: [6]
+patience: [3]

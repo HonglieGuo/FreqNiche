@@ -1,0 +1,9 @@
+datasets: [human_skin, sea_ad, cosmx_nsclc, xenium_prime5k]
+methods: [banksy, cellcharter, cellniche, stagate, sedr, graphst, spagcn]
+seeds: [42, 123, 2024]
+
+availability:
+  human_skin: [banksy, cellcharter, cellniche, stagate, sedr, graphst, spagcn]
+  sea_ad: [banksy, cellcharter, cellniche, stagate, sedr, graphst, spagcn]
+  cosmx_nsclc: [banksy, cellcharter, cellniche, stagate, sedr, graphst, spagcn]
+  xenium_prime5k: [banksy, cellcharter, stagate]

@@ -1,0 +1,128 @@
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling"]
+
+[tool.hatch.build]
+exclude = [
+  "docs*",
+  "tests*",
+]
+
+[project]
+name = "cellcharter"
+version = "0.3.7"
+description = "A Python package for the identification, characterization and comparison of spatial clusters from spatial -omics data."
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+license = {file = "LICENSE"}
+authors = [
+    {name = "CSO group"},
+]
+maintainers = [
+    {name = "Marco Varrone", email = "marco.varrone@unil.ch"},
+]
+urls.Documentation = "https://cellcharter.readthedocs.io/"
+urls.Source = "https://github.com/CSOgroup/cellcharter"
+urls.Home-page = "https://github.com/CSOgroup/cellcharter"
+dependencies = [
+    "anndata",
+    "scikit-learn",
+    "squidpy >= 1.6.3",
+    "torchgmm >= 0.1.4",
+    # for debug logging (referenced from the issue template)
+    "session-info",
+    "rasterio",
+    "sknw",
+    "spatialdata",
+    "spatialdata-plot",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit",
+    "twine>=4.0.2"
+]
+doc = [
+    "docutils>=0.8,!=0.18.*,!=0.19.*",
+    "sphinx>=4",
+    "sphinx-book-theme>=1.0.0",
+    "myst-nb>=1.1.0",
+    "sphinxcontrib-bibtex>=1.0.0",
+    "sphinx-autodoc-typehints",
+    "sphinxext-opengraph",
+    # For notebooks
+    "ipykernel",
+    "ipython",
+    "sphinx-copybutton",
+    "sphinx-design"
+]
+test = [
+    "pytest",
+    "pytest-cov",
+]
+transcriptomics = [
+    "scvi-tools",
+]
+proteomics = [
+    "scarches",
+]
+
+[tool.coverage.run]
+source = ["cellcharter"]
+omit = [
+    "**/test_*.py",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+xfail_strict = true
+addopts = [
+    "--import-mode=importlib",  # allow using test files with same name
+]
+filterwarnings = [
+    "ignore::anndata.OldFormatWarning",
+    "ignore:.*this fit will run with no optimizer.*",
+    "ignore:.*Consider increasing the value of the `num_workers` argument.*",
+]
+
+[tool.isort]
+include_trailing_comma = true
+multi_line_output = 3
+profile = "black"
+skip_glob = ["docs/*"]
+
+[tool.black]
+line-length = 120
+target-version = ['py38']
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      \.eggs
+    | \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+  )/
+)
+'''
+
+[tool.jupytext]
+formats = "ipynb,md"
+
+[tool.cruft]
+skip = [
+    "tests",
+    "src/**/__init__.py",
+    "src/**/basic.py",
+    "docs/api.md",
+    "docs/changelog.md",
+    "docs/references.bib",
+    "docs/references.md",
+    "docs/notebooks"
+]

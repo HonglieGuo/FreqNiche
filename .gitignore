@@ -1,0 +1,175 @@
+# ==============================================================================
+# Ignore rules for project data / weights / run artefacts.
+#
+# RULE OF THUMB: anchor every top-level directory with a leading slash.
+#
+# A pattern without a slash (or with only a trailing one) matches a directory of that
+# name at ANY depth. `models/` therefore also matched `src/models/`, and `data/` also
+# matched `configs/data/` — which silently kept most of the project source out of version
+# control. `/models/` matches only the pretrained-weights folder at the repo root, so no
+# un-ignore (`!`) rules are needed and the file stays easy to reason about.
+#
+# When adding a new top-level data/artefact folder, write it as `/name/`.
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# Datasets (root only — `configs/data/` and `src/...` are unaffected)
+# ------------------------------------------------------------------------------
+# Keep only the dataset download and usage guide.
+/datasets/*
+!/datasets/README.md
+
+# ------------------------------------------------------------------------------
+# Run artefacts
+# ------------------------------------------------------------------------------
+/outputs/
+/logs/
+/run_log/
+/wandb/
+/checkpoints/
+/saved_models/
+/figures/
+/scMultiBench/scMultiBench_output/
+/tmp/
+
+# Generated result directories at any depth (including downstream analyses).
+results/
+outputs/
+logs/
+checkpoints/
+.cache/
+.pytest_cache/
+
+# Generated tables, embeddings, serialized models and rendered figures.
+*.csv
+*.tsv
+*.xlsx
+*.xls
+*.parquet
+*.npy
+*.npz
+*.pkl
+*.pickle
+*.joblib
+*.log
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.pdf
+
+# ------------------------------------------------------------------------------
+# Third-party code and papers
+# ------------------------------------------------------------------------------
+# Baselines: only source, configuration, dependency lists and documentation.
+# Keep directories traversable so nested source files can be re-included.
+/baselines/**
+!/baselines/**/
+!/baselines/**/*.py
+!/baselines/**/*.R
+!/baselines/**/*.r
+!/baselines/**/*.sh
+!/baselines/**/*.yaml
+!/baselines/**/*.yml
+!/baselines/**/*.toml
+!/baselines/**/*.md
+!/baselines/**/*.rst
+!/baselines/**/requirement*.txt
+!/baselines/**/README*
+!/baselines/**/LICENSE*
+!/baselines/**/License*
+!/baselines/**/COPYING*
+!/baselines/**/NOTICE*
+!/baselines/**/.gitignore
+!/baselines/**/.editorconfig
+!/baselines/**/.flake8
+/baselines/outputs/
+/baselines/Baselines_outputs/
+/baselines/**/results/
+/baselines/**/outputs/
+/baselines/**/logs/
+/baselines/**/checkpoints/
+/baselines/**/data/
+/baselines/**/_data/
+/baselines/**/_models/
+/baselines/**/tutorial_models/
+/baselines/**/tutorial_data/
+/baselines/**/.cache/
+/baselines/**/.pytest_cache/
+/baselines/**/build/
+/baselines/**/dist/
+/baselines/run_baselines_*.txt
+
+# Analysis source and protocols only; generated JSON summaries are excluded too.
+/experiments_analysis/**
+!/experiments_analysis/**/
+!/experiments_analysis/**/*.py
+!/experiments_analysis/**/*.R
+!/experiments_analysis/**/*.r
+!/experiments_analysis/**/*.sh
+!/experiments_analysis/**/*.yaml
+!/experiments_analysis/**/*.yml
+!/experiments_analysis/**/*.toml
+!/experiments_analysis/**/*.md
+!/experiments_analysis/**/*.rst
+/experiments_analysis/**/results/
+/experiments_analysis/**/outputs/
+/experiments_analysis/**/logs/
+/experiments_analysis/**/checkpoints/
+/experiments_analysis/**/.cache/
+/experiments_analysis/**/.pytest_cache/
+
+# ------------------------------------------------------------------------------
+# Environments and build output (root-level project dirs)
+# ------------------------------------------------------------------------------
+/env/
+/venv/
+/.venv/
+/.venv-spatial-baselines/
+/.conda/
+/dist/
+/build/
+/.Python
+*.egg-info/
+
+# ------------------------------------------------------------------------------
+# IDE / editor (may legitimately appear in subdirectories)
+# ------------------------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+
+# ------------------------------------------------------------------------------
+# Caches and generated binaries (must match at any depth)
+# ------------------------------------------------------------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Model weights / large data files, wherever they land
+*.ckpt
+*.pth
+*.pt
+*.bin
+*.h5ad
+*.h5mu
+*.Rdata
+*.dill
+
+# Run logs
+# *.log
+/run_all_datasets_*.txt
+/train_*.txt
+
+# Legacy root launchers are omitted; use the public Python entry points.
+/run_ablation.sh
+/run_grid_search.py
+/run_all_datasets.sh
+/scripts/benchmark/run_human_skin_refinement.py
+# Development tests are omitted from the lightweight public distribution.
+/tests/
+
+# Architecture illustration used by the public README.
+!/data/fig1_freqniche_architecture.pdf
+!/data/fig1_freqniche_architecture.png

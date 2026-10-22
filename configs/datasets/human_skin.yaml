@@ -1,0 +1,10 @@
+id: human_skin
+display_name: Human Skin MERFISH
+technology: MERFISH
+data_path: datasets/h5ad/human_skin_merfish/human_skin_merfish.h5ad
+splits_path: datasets/h5ad/human_skin_merfish/donor_splits.csv
+train_contract: outputs/contracts/human_skin/train_centers_68940.json
+validation_contract: outputs/contracts/human_skin/validation_barcodes_8k.csv
+test_contract: outputs/contracts/human_skin/test_centers_8k.csv
+backend: human_skin
+supports_grid: [max_epochs, patience, batch_size, min_delta, k_max, rho, p_center_mask, m_max, hidden_dim, n_encoder_layers, n_diffusion_layers, n_heads, diffusion_timesteps, learning_rate, weight_decay, covariance_weight]

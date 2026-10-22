@@ -1,0 +1,22 @@
+{
+  "outputs/freqniche_wave_2/w23_refinement": "outputs/runs/freqniche/human_skin/2026-09-08/20260908_human_skin_training_final",
+  "outputs/freqniche_wave_2/w24_benchmark_final_v1": "baselines/Baselines_outputs/runs/human_skin/2026-09-18/20260918_human_skin_benchmark_final",
+  "outputs/freqniche_wave_2/w24_full_slice_visualization_v1": "baselines/Baselines_outputs/runs/human_skin/2026-09-21/20260921_human_skin_full_slice_comparison",
+  "outputs/freqniche_wave_2/w25_sea_ad": "outputs/runs/freqniche/sea_ad/2026-09-15/20260915_sea_ad_final",
+  "outputs/freqniche_wave_2/w26_cosmx": "outputs/runs/freqniche/cosmx_nsclc/2026-09-17/20260917_cosmx_nsclc_final",
+  "outputs/freqniche_wave_2/w27_xenium": "outputs/runs/freqniche/xenium_prime5k/2026-09-18/20260918_xenium_prime5k_final",
+  "outputs/freqniche_wave_2/w28_task_c_gene_programs": "outputs/runs/analyses/human_skin/2026-09-23/20260923_human_skin_task_c",
+  "outputs/freqniche_wave_2/w29_sea_ad_ablation": "outputs/runs/ablations/sea_ad/2026-09-23/20260923_sea_ad_component_ablation",
+  "outputs/freqniche_wave_2/w30_cosmx_nocoord": "outputs/runs/ablations/cosmx_nsclc/2026-09-23/20260923_cosmx_nsclc_nocoord",
+  "outputs/freqniche_wave_2/w30_skin_nocoord": "outputs/runs/ablations/human_skin/2026-09-23/20260923_human_skin_nocoord",
+  "outputs/freqniche_wave_2/w31_skin_transductive": "outputs/runs/analyses/human_skin/2026-09-24/20260924_human_skin_transductive",
+  "outputs/freqniche_wave_2/w32_clusterer_sensitivity": "baselines/Baselines_outputs/runs/human_skin/2026-09-28/20260928_human_skin_clusterer_sensitivity",
+  "outputs/runs/freqniche/sea_ad/2026-09-15/20260915_sea_ad_final/baselines": "baselines/Baselines_outputs/runs/sea_ad/2026-09-15/20260915_sea_ad_baselines",
+  "outputs/runs/freqniche/cosmx_nsclc/2026-09-17/20260917_cosmx_nsclc_final/baselines": "baselines/Baselines_outputs/runs/cosmx_nsclc/2026-09-17/20260917_cosmx_nsclc_baselines",
+  "outputs/runs/freqniche/xenium_prime5k/2026-09-18/20260918_xenium_prime5k_final/baselines": "baselines/Baselines_outputs/runs/xenium_prime5k/2026-09-18/20260918_xenium_prime5k_baselines",
+  "outputs/freqniche_wave_2/w24_benchmark": "outputs/runs/freqniche/human_skin/2026-09-18/20260918_human_skin_evaluation_final",
+  "outputs/freqniche_wave_2/w22_tuning": "outputs/experiments/human_skin/model_selection",
+  "baselines/outputs": "baselines/Baselines_outputs",
+  "outputs/runs/benchmarks": "baselines/Baselines_outputs/runs",
+  "outputs/runs/analyses/human_skin/2026-09-28/20260928_human_skin_clusterer_sensitivity": "baselines/Baselines_outputs/runs/human_skin/2026-09-28/20260928_human_skin_clusterer_sensitivity"
+}

@@ -1,0 +1,15 @@
+id: xenium_prime5k
+display_name: Xenium Prime 5K Human NSCLC
+technology: Xenium
+data_path: datasets/h5ad/xenium_ffpe_lungbreast_gse311609/samples
+required_samples:
+  - GSM9509134_NSCLC_5k_L1_L1.h5ad
+  - GSM9509135_NSCLC_5k_L3_L3.h5ad
+  - GSM9509136_NSCLC_5k_L5_L5.h5ad
+  - GSM9509137_NSCLC_5k_L6_L6.h5ad
+  - GSM9509138_NSCLC_5k_L7_L7.h5ad
+  - GSM9509139_NSCLC_5k_L8_L8.h5ad
+splits_path: datasets/h5ad/xenium_ffpe_lungbreast_gse311609/donor_splits.csv
+roi_path: datasets/h5ad/Xenium_Prime5K_Lung
+backend: xenium_prime5k
+supports_grid: [max_epochs, patience, batch_size, min_delta, k_max, rho, p_center_mask, m_max, hidden_dim, n_encoder_layers, n_diffusion_layers, n_heads, diffusion_timesteps, learning_rate, weight_decay, covariance_weight]

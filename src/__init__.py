@@ -1,0 +1,1 @@
+"""FreqNiche project source package."""
