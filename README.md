@@ -1,6 +1,23 @@
-# FreqNiche
+<h1 align="center">FreqNiche</h1>
 
-### Frequency-aware conditional diffusion learning for cellular niches
+<p align="center">
+  <strong>Frequency-aware conditional diffusion learning for cellular niches</strong>
+</p>
+
+<p align="center">
+  <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.10-3776AB?logo=python&amp;logoColor=white" alt="Python 3.10"></a>
+  <a href="https://pytorch.org/"><img src="https://img.shields.io/badge/PyTorch-2.13.0-EE4C2C?logo=pytorch&amp;logoColor=white" alt="PyTorch 2.13.0"></a>
+  <a href="https://scanpy.readthedocs.io/"><img src="https://img.shields.io/badge/Scanpy-1.11.5-4C9A2A" alt="Scanpy 1.11.5"></a>
+  <a href="https://huggingface.co/datasets/Honglie/FreqNiche-datasets"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Datasets-FFD21E" alt="Hugging Face Datasets"></a>
+</p>
+
+<p align="center">
+  <a href="datasets/README.md">💾 Data guide</a> ·
+  <a href="experiments_analysis/README.md">🧬 Analysis guide</a> ·
+  <a href="baselines/README.md">📊 Baseline guide</a>
+</p>
+
+---
 
 FreqNiche learns cellular-niche representations from single-cell spatial
 transcriptomics data. It combines local expression, spatial coordinates and
@@ -14,12 +31,7 @@ embeddings for cells from unseen donors without iterative diffusion sampling.
 
 *Overview of FreqNiche. Click the figure to open the original PDF.*
 
-[Data on Hugging Face](https://huggingface.co/datasets/Honglie/FreqNiche-datasets)
-| [Data guide](datasets/README.md)
-| [Analysis guide](experiments_analysis/README.md)
-| [Baseline guide](baselines/README.md)
-
-## Overview
+## 🌟 Overview
 
 The framework supports spatial-domain and cellular-niche identification,
 neighborhood cell-composition prediction, cortical-depth prediction, and
@@ -32,7 +44,19 @@ pipelines, downstream analyses, and baseline adapters. Processed data are hosted
 separately on Hugging Face. Checkpoints, embeddings, result tables and generated
 figures are produced locally when the workflows are run.
 
-## Installation
+### Key features
+
+- **🌊 Frequency-aware context:** combine expression, low-frequency neighborhood
+  background and high-frequency residuals with relative spatial coordinates.
+- **🧠 Self-supervised learning:** train a niche encoder through conditional
+  residual denoising and variance/covariance regularization.
+- **⚡ Encoder-only inference:** obtain embeddings for unseen donors using the
+  frozen encoder, without iterative diffusion sampling.
+- **🔬 Multiple biological readouts:** evaluate spatial domains and cellular
+  niches, predict neighborhood composition and cortical depth, and investigate
+  within-cell-type niche-associated expression.
+
+## 🚀 Installation
 
 Use **Linux or WSL2 with Python 3.10**. A CUDA-capable GPU is recommended for
 full-scale training; the reproduction launcher defaults to `--device cuda`.
@@ -53,7 +77,7 @@ covers Python packages in the main environment; separate baseline environments
 and R packages are described in the linked analysis and baseline guides.
 R's `mclust` is needed only for the corresponding optional clusterer analysis.
 
-## Data
+## 💾 Data
 
 Download the processed inputs from
 [Honglie/FreqNiche-datasets](https://huggingface.co/datasets/Honglie/FreqNiche-datasets).
@@ -94,7 +118,7 @@ NSCLC sample H5AD files and three additional ROI files for its preparation
 audit. See the [data guide](datasets/README.md) for the complete file layout,
 AnnData usage, source information and dataset-specific conditions of use.
 
-## Reproduce training and downstream analyses
+## ⚡ Reproduce training and downstream analyses
 
 First inspect the planned commands after installing dependencies and downloading
 the data:
@@ -168,7 +192,7 @@ the corresponding biological groups after inspecting their reported composition.
 If the grouping requirements are absent, the analysis stops. See the
 [analysis guide](experiments_analysis/README.md) for the full protocol.
 
-## Model configuration
+## 🛠️ Model configuration
 
 Both entry points use dataset-specific manuscript settings by default:
 
@@ -193,7 +217,7 @@ parameter dictionaries. `train.py` defaults to `RUN_TEST=False`.
 The reproduction launcher also accepts `--device cpu`, `--batch-size` and
 `--max-epochs`. Overriding the manuscript settings defines a different experiment.
 
-## Outputs and reproducibility
+## 📦 Outputs and reproducibility
 
 New model runs are written under:
 
@@ -217,7 +241,7 @@ checks; a complete three-seed rerun on the released data has not yet been
 performed as part of repository preparation. Numerical results and cluster
 assignments can vary across software and hardware environments.
 
-## Baselines and supplementary analyses
+## 📊 Baselines and supplementary analyses
 
 - [Baselines](baselines/README.md): method inventory, environment requirements and launch instructions.
 - [Downstream analyses](experiments_analysis/README.md): task definitions, independent entry points and statistical protocols.
@@ -230,7 +254,7 @@ Third-party baseline implementations retain their upstream licenses and
 attribution. Refer to each method's documentation and the data guide when
 using or redistributing those materials.
 
-## Repository structure
+## 📂 Repository structure
 
 ```text
 FreqNiche/
@@ -248,4 +272,28 @@ FreqNiche/
 └── data/                    # Architecture figure and pathway collections
 ```
 
-## Citation
+## 📖 Citation
+
+If you use FreqNiche in your research, please cite our paper.
+The manuscript is currently unpublished; citation details will be added upon publication.
+
+## 🙏 Acknowledgements
+
+We thank the developers and contributors of the open-source tools supporting
+this project:
+
+- [PyTorch](https://pytorch.org/) for deep learning and automatic differentiation.
+- [Scanpy](https://scanpy.readthedocs.io/) and [AnnData](https://anndata.readthedocs.io/)
+  for single-cell data processing and storage.
+- [NumPy](https://numpy.org/), [SciPy](https://scipy.org/) and
+  [scikit-learn](https://scikit-learn.org/) for numerical computing and evaluation.
+- [Matplotlib](https://matplotlib.org/) and [seaborn](https://seaborn.pydata.org/)
+  for scientific visualization.
+- The authors of **BANKSY, CellCharter, CellNiche, STAGATE, SEDR, GraphST and
+  SpaGCN** for their publicly available implementations. Source information and
+  usage details are provided in the [baseline guide](baselines/README.md).
+
+We also thank the original dataset contributors for making their spatial
+transcriptomics data available, and [Hugging Face](https://huggingface.co/)
+for hosting the processed datasets. Upstream code and data retain their
+respective licenses and attribution requirements.
