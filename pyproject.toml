@@ -7,6 +7,7 @@ name = "freqniche"
 version = "1.0.0"
 description = "Frequency-aware conditional diffusion learning for spatial cellular niches"
 readme = "README.md"
+license = {file = "LICENSE"}
 requires-python = ">=3.10,<3.13"
 dependencies = [
   "anndata>=0.11,<0.12",

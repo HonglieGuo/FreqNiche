@@ -1,30 +1,30 @@
-# CosMx 关键设计消融
+# CosMx key design ablations
 
-对应论文“关键设计消融分析”。计算实现保留在本目录，原根目录 Shell 包装入口已删除，直接使用 Python 脚本启动。
+This directory implements the manuscript's key design ablation analysis. The legacy root-level shell wrapper has been removed; launch the Python scripts directly.
 
-## 输入与配置
+## Inputs and configuration
 
-`run_cosmx_component_ablation.py` 运行 Full、NoCoord、NoLow、NoHigh、Raw-only 和 Deterministic 六组配置，均使用种子42、123、2024。论文中的联合退化配置由 `run_cosmx_all_three_ablation.py` 单独提供。`compute_cosmx_ablation_ami.py` 补算 AMI，`audit_cosmx_all_three.py` 核验联合消融资产。
+`run_cosmx_component_ablation.py` runs six configurations: Full, NoCoord, NoLow, NoHigh, Raw-only and Deterministic, each with seeds 42, 123 and 2024. The combined ablation in the manuscript is implemented separately in `run_cosmx_all_three_ablation.py`. `compute_cosmx_ablation_ami.py` computes additional AMI readouts, and `audit_cosmx_all_three.py` audits the combined-ablation assets.
 
-基础模型与论文一致：128维、3层编码器、2层DiT、8个注意力头、50扩散步，学习率和权重衰减为1e-3；训练预算50轮，batch size 64，patience 7，min_delta 1e-4。
+The base model follows the manuscript: 128 dimensions, 3 encoder layers, 2 DiT layers, 8 attention heads and 50 diffusion steps, with learning rate and weight decay both set to 1e-3. Training uses at most 50 epochs, batch size 64, patience 7 and min_delta 1e-4.
 
-该消融流程依赖脚本中 `COSMX_RUN` 登记的冻结 CosMx 数据审计、图、白化器、中心清单和验证 bootstrap 清单。默认还复用 Full/NoCoord 的已核验检查点；`--no-reuse-existing` 从头训练这些权重，但仍需上述公共输入资产。仅下载 H5AD 不等于已经准备好所有消融输入。本目录不会自动替换历史路径或放宽输入签名检查。
+This workflow requires the frozen CosMx data audit, graphs, whitener, center manifests and Validation bootstrap manifest registered by `COSMX_RUN` in the script. By default, it also reuses verified Full/NoCoord checkpoints. `--no-reuse-existing` retrains those weights but still requires the shared input assets. Downloading the H5AD alone does not prepare every ablation input. The scripts do not automatically replace historical paths or relax input-signature checks.
 
-## 直接启动
+## Direct execution
 
-在 Linux/WSL 的项目根目录选择新的运行目录：
+From the repository root in Linux/WSL, choose a new run directory:
 
 ```bash
 ABLATION_RUN="outputs/runs/ablations/cosmx_nsclc/$(TZ=Asia/Shanghai date +%Y-%m-%d)/$(TZ=Asia/Shanghai date +%Y%m%d-%H%M%S)"
-# 只检查计划，不读数据、不写结果
+# Inspect the plan without reading data or writing results
 python experiments_analysis/ablation/run_cosmx_component_ablation.py --output-dir "$ABLATION_RUN" --phase all --plan
-# 只核对冻结输入，不训练
+# Verify frozen inputs without training
 python experiments_analysis/ablation/run_cosmx_component_ablation.py --output-dir "$ABLATION_RUN" --phase preflight
-# 完整训练/验证及冻结 Test 评估
+# Complete Train/Validation and frozen Test evaluation
 python experiments_analysis/ablation/run_cosmx_component_ablation.py --output-dir "$ABLATION_RUN" --phase all --authorized
 ```
 
-需要重训 Full/NoCoord 时，在完整运行命令中加入 `--no-reuse-existing`。重启终端后，必须将 `ABLATION_RUN` 设置为之前实际使用的目录才能恢复：
+Add `--no-reuse-existing` to the full-run command to retrain Full/NoCoord. After reopening a terminal, set `ABLATION_RUN` to the exact previously used directory before resuming:
 
 ```bash
 python experiments_analysis/ablation/run_cosmx_component_ablation.py --output-dir "$ABLATION_RUN" --phase train_validation --resume
@@ -32,4 +32,4 @@ python experiments_analysis/ablation/run_cosmx_component_ablation.py --output-di
 python experiments_analysis/ablation/run_cosmx_component_ablation.py --output-dir "$ABLATION_RUN" --phase audit
 ```
 
-所有结果写入 `outputs/runs/ablations/cosmx_nsclc/`，保持 Git 忽略。正常流程核对来源、权重、细胞顺序、验证参数和独立重载指标；既有运行配置或源代码变化时不混用结果。单一测试供体上的跨种子标准差不代表跨供体不确定性。
+All results are written under `outputs/runs/ablations/cosmx_nsclc/` and remain ignored by Git. The workflow verifies provenance, weights, cell order, Validation parameters and metrics after independent reloading. Results from changed run configurations or source code are not mixed. Across-seed standard deviation on a single Test donor does not measure cross-donor uncertainty.

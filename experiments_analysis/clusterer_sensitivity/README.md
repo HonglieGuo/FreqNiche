@@ -1,21 +1,21 @@
-# 聚类算法敏感性实验
+# Clusterer sensitivity experiments
 
-对应论文补充材料“聚类算法敏感性实验”，保留归纳式 FreqNiche、CellCharter、BANKSY、STAGATE 与 CellNiche 的冻结表征。未纳入论文的 FreqNiche 转导适配分支已移除，不再要求其选择或适配清单。
+This directory implements the supplementary clusterer sensitivity analysis using frozen representations from inductive FreqNiche, CellCharter, BANKSY, STAGATE and CellNiche. The FreqNiche transductive-adaptation branch was not included in the manuscript and has been removed; its selection and adaptation manifests are no longer required.
 
-## 协议
+## Protocol
 
-- 比较 K-means、R mclust EEE、Louvain、Leiden。
-- 主读出通过验证集共享十个 80% 子采样的无标签稳定性选择参数；并列时选较小参数，再冻结到测试集。
-- K-means/mclust 的 K/G 候选为 5–25；Louvain/Leiden 分辨率候选为 0.1–2.0，近邻数为 15。
-- mclust 只在验证表征上拟合 PCA20，冻结投影应用于测试；实际非空簇数可以小于请求的 G。
-- 参考类别数诊断固定目标 K=10；图聚类只按实际簇数接近程度选择分辨率，ARI/NMI 不参与选择。它与主无标签读出分开报告。
-- 全部四种聚类器均须报告；不得只保留最高分。环境核对使用根目录 `requirements.txt`，并记录 R/mclust 版本。
+- Compare K-means, R mclust EEE, Louvain and Leiden.
+- Select primary-readout parameters by unlabeled stability on ten shared 80% Validation subsamples. Break ties by choosing the smaller parameter, then freeze it for Test.
+- Candidate K/G values for K-means/mclust are 5-25. Candidate Louvain/Leiden resolutions are 0.1-2.0, with 15 nearest neighbors.
+- Fit PCA20 for mclust on Validation representations only and apply the frozen projection to Test. The actual number of nonempty clusters may be smaller than the requested G.
+- The reference-class-count diagnostic fixes target K=10. Graph-clustering resolutions are selected solely by proximity of the actual cluster count to that target; ARI/NMI are not used. Report this diagnostic separately from the primary unlabeled readout.
+- Report all four clusterers rather than retaining only the highest-scoring one. Check the environment against the root `requirements.txt` and record the R/mclust versions.
 
-## 执行
+## Execution
 
-该补充分析仍使用 `clusterer_common.py` 中登记的历史冻结表征、条码和 bootstrap 清单，不属于 `reproduce.py` 的三个预测/表达任务。需要另行准备对应运行资产；R 必须安装 `mclust`。
+This supplementary analysis uses the historical frozen representations, barcodes and bootstrap manifests registered in `clusterer_common.py`. It is separate from the three prediction/expression tasks in `reproduce.py`. Prepare the corresponding run assets separately and install the R package `mclust`.
 
-在项目根目录运行，`--suite freqniche` 为论文中的归纳模型，`--suite baselines` 为基线：
+Run from the repository root. `--suite freqniche` selects the manuscript's inductive model, and `--suite baselines` selects baseline methods:
 
 ```bash
 python experiments_analysis/clusterer_sensitivity/preflight_clusterer_environment.py --suite freqniche
@@ -28,4 +28,4 @@ python experiments_analysis/clusterer_sensitivity/merge_clusterer_results.py
 python experiments_analysis/clusterer_sensitivity/plot_clusterer_results.py --dry-run
 ```
 
-合并前检查两端算法环境和输入签名。已有结果不覆盖；历史报告中的额外转导分支在论文输出中排除，原始报告文件保持只读。
+Verify both algorithm environments and input signatures before merging. Existing results are not overwritten. Additional transductive branches in historical reports are excluded from manuscript outputs, while the original report files remain read-only.

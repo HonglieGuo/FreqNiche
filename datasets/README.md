@@ -1,19 +1,19 @@
-# 数据下载与使用
+# Data download and usage
 
-处理后的数据托管于 [Honglie/FreqNiche-datasets](https://huggingface.co/datasets/Honglie/FreqNiche-datasets)。GitHub 代码仓库保留配置和小型清单，H5AD 文件需要单独下载。当前发布包包含 12 个 H5AD 文件及 10 个 JSON/CSV 文件，H5AD 总大小约 2.79 GB；请另外预留运行时内存和图缓存空间。
+Processed inputs are hosted at [Honglie/FreqNiche-datasets](https://huggingface.co/datasets/Honglie/FreqNiche-datasets). The GitHub repository provides the code, configurations and this guide; download H5AD files and their accompanying manifests and split tables separately. The release contains 12 H5AD files and 10 JSON/CSV files. The H5AD files total approximately 2.79 GB; allow additional memory and disk space for processing and graph caches.
 
-## 下载
+## Download
 
-在 **FreqNiche 项目根目录**执行：
+Run the following commands from the **FreqNiche repository root**:
 
 ```bash
 python -m pip install huggingface_hub
 python -c "from huggingface_hub import snapshot_download; snapshot_download(repo_id='Honglie/FreqNiche-datasets', repo_type='dataset', revision='98bfe081bfdb6529490bc4f49f69c3360bd516ee', local_dir='datasets/h5ad', allow_patterns=['cosmx_human_nsclc/*', 'human_skin_merfish/*', 'sea_ad/*', 'xenium_ffpe_lungbreast_gse311609/*', 'Xenium_Prime5K_Lung/*'])"
 ```
 
-命令适用于 PowerShell 和 Bash。固定的完整 commit 对应首次数据上传，避免后续更新改变复现实验输入。公开且未设门槛的仓库无需登录；如下载中断，可重新执行相同命令。工具可能在目标目录生成 `.cache/huggingface/` 下载元数据，这不是实验输入。
+These commands work in PowerShell and Bash. The full commit hash pins the first data upload, preventing subsequent updates from changing the reproduction inputs. Public, ungated repositories can be downloaded without signing in. If a download is interrupted, rerun the same command. The downloader may create `.cache/huggingface/` metadata inside the destination; this metadata is not an experimental input.
 
-仅下载某个数据集时，使用 Python：
+To download a single dataset, use Python:
 
 ```python
 from huggingface_hub import snapshot_download
@@ -27,9 +27,9 @@ snapshot_download(
 )
 ```
 
-也可以在网页 Files and versions 中逐个下载，按下面的结构放置；不要丢失子目录或改变大小写。
+Alternatively, download files individually from the web interface's **Files and versions** tab and place them in the structure below. Preserve all subdirectories and filename capitalization.
 
-## 目录与实验对应关系
+## File layout and experiment mapping
 
 ```text
 datasets/h5ad/
@@ -46,7 +46,7 @@ datasets/h5ad/
 │   ├── dataset_manifest.json
 │   └── donor_splits.csv
 ├── xenium_ffpe_lungbreast_gse311609/
-│   ├── samples/                  # 六个 GSM9509134–GSM9509139 H5AD
+│   ├── samples/                  # Six H5AD files: GSM9509134-GSM9509139
 │   ├── dataset_manifest.json
 │   ├── sample_manifest.csv
 │   └── donor_splits.csv
@@ -57,19 +57,19 @@ datasets/h5ad/
     └── xenium_roi_preprocess_summary.csv
 ```
 
-| 配置 ID | 数据目录 | 用途 |
+| Configuration ID | Data directory | Purpose |
 | --- | --- | --- |
-| `human_skin` | `human_skin_merfish` | Human Skin MERFISH 主基准 |
-| `sea_ad` | `sea_ad` | SEA-AD MTG MERFISH 皮层深度与消融实验 |
-| `cosmx_nsclc` | `cosmx_human_nsclc` | CosMx NSCLC 跨平台与坐标消融实验 |
-| `xenium_prime5k` | `xenium_ffpe_lungbreast_gse311609/samples` | 六个 NSCLC Prime 5K 样本的外部基准 |
-| `xenium_prime5k` 补充 ROI | `Xenium_Prime5K_Lung` | 三个各 10,000 细胞的空间案例分析区域 |
+| `human_skin` | `human_skin_merfish` | Main Human Skin MERFISH benchmark |
+| `sea_ad` | `sea_ad` | SEA-AD MTG MERFISH spatial-domain identification and cortical-depth analysis |
+| `cosmx_nsclc` | `cosmx_human_nsclc` | CosMx NSCLC cross-platform benchmark and coordinate ablation |
+| `xenium_prime5k` | `xenium_ffpe_lungbreast_gse311609/samples` | External benchmark using six NSCLC Prime 5K samples |
+| `xenium_prime5k` supplementary ROIs | `Xenium_Prime5K_Lung` | Three spatial case-study regions, each containing 10,000 cells |
 
-**Xenium 清单范围：** `dataset_manifest.json` 的顶层 40 样本、27 供者和总细胞数，以及配套 CSV，记录的是较大的来源集合，不能作为本次发布包的文件数量或总量。本次正式队列由 `configs/datasets/xenium_prime5k.yaml` 的 `required_samples` 明确指定，仅含 GSM9509134–GSM9509139。清单中的其他样本不随包提供。
+**Scope of the Xenium manifests:** the top-level totals of 40 samples, 27 donors and cell counts in `dataset_manifest.json`, together with the accompanying CSV files, describe a larger source collection. They are not the file count or total size of this release. The formal cohort is specified by `required_samples` in `configs/datasets/xenium_prime5k.yaml` and contains only GSM9509134-GSM9509139. Other samples listed in the manifests are not included.
 
-## 读取与复现
+## Reading the data and reproducing experiments
 
-完成项目根目录 README 中的环境安装后，可先以只读方式检查数据：
+After completing the environment setup in the root README, inspect a dataset in read-only mode:
 
 ```python
 from pathlib import Path
@@ -85,11 +85,11 @@ finally:
     adata.file.close()
 ```
 
-这些是 AnnData/H5AD 科学数据文件，使用 `anndata.read_h5ad`，无需使用 Hugging Face `datasets.load_dataset`。不要直接将大型稀疏表达矩阵转成稠密矩阵。
+These are AnnData/H5AD scientific data files. Read them with `anndata.read_h5ad`; Hugging Face `datasets.load_dataset` is not required. Avoid converting large sparse expression matrices directly to dense arrays.
 
-保留发布的供者划分和样本边界，遵循配置与正式脚本的标签有效性掩码。SEA-AD 的表达矩阵包含来源中的非负小数值，并非全部为原始整数计数。CosMx 的标准物理坐标为 `obsm['spatial_um']`；像素坐标为 `obsm['spatial_pixel']`，具体单位约定见清单。不要对已转换的物理坐标重复缩放。
+Preserve the released donor splits and sample boundaries, and apply the valid-label masks defined in the configurations and evaluation scripts. SEA-AD expression includes nonnegative fractional values from the source and is not entirely raw integer counts. CosMx uses `obsm['spatial_um']` for standard physical coordinates and `obsm['spatial_pixel']` for pixel coordinates; see its manifest for unit conventions. Do not rescale physical coordinates that have already been converted.
 
-在项目根目录运行下列命令，先检查计划，再启动模型训练、Test 推理和下游分析：
+From the repository root, inspect the command plan before starting training, Test inference and downstream analyses:
 
 ```bash
 python reproduce.py --dataset human_skin --dry-run
@@ -97,14 +97,14 @@ python reproduce.py --dataset human_skin --tasks neighborhood_composition_predic
 python reproduce.py --dataset sea_ad --tasks cortical_depth_prediction
 ```
 
-公共入口默认按数据集选择论文配置（Human Skin/CosMx：128维、3/2层、学习率1e-3、最多50轮；SEA-AD/Xenium：256维、6/4层、学习率1e-4、最多200轮）；`--profile current` 使用可编辑的 `train.py` 参数。`--stage model` 仅执行模型训练与评估；`--stage downstream --run-dir 实际运行目录` 读取该次运行的输入清单再做下游分析。同一细胞类型内的生态位相关表达分析还需满足规定的生物学分组条件，详见[分析说明](../experiments_analysis/README.md)。
+The public entry point selects the dataset-specific manuscript configuration by default: Human Skin/CosMx use 128 dimensions, 3 encoder layers, 2 DiT layers, a learning rate of 1e-3 and at most 50 epochs; SEA-AD/Xenium use 256 dimensions, 6 encoder layers, 4 DiT layers, a learning rate of 1e-4 and at most 200 epochs. `--profile current` uses the editable parameters in `train.py`. `--stage model` runs model training and evaluation only. `--stage downstream --run-dir RUN_DIRECTORY` reads the selected run's input manifest and performs downstream analysis. Within-cell-type niche-associated expression analysis also requires the specified biological grouping conditions; see the [analysis guide](../experiments_analysis/README.md).
 
-公开包不需要包含历史训练权重或结果。新入口会重建图和中心 contracts，执行 Test 后导出带有条码、维度及哈希校验的 `downstream_inputs.json`，下游结果写到本次运行的 `downstream/` 中。附加聚类敏感性及历史论文图件审计仍可能需要各自冻结的资产；它们不属于这条从头复现入口。完整数据规模的三种子结果是否一致，需要另做正式训练验证。
+Historical checkpoints and results are not required in the public distribution for the main reproduction workflow. The entry point rebuilds graphs and center contracts, then exports `downstream_inputs.json` after Test inference, with barcode, dimension and hash checks. Downstream results are written to the selected run's `downstream/` directory. Supplementary clusterer sensitivity analyses and historical manuscript figure audits may require their own frozen assets and are separate from this workflow. Agreement of full-scale three-seed results requires a separate formal training rerun.
 
-## 来源、引用与许可
+## Sources, citation and licensing
 
-本包是 FreqNiche 使用的处理后输入，原始数据的贡献者和权利归属不变。使用时应引用 FreqNiche 和各原始数据来源。GSE311609 的来源入口为 [NCBI GEO](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE311609)。其余来源的精确版本、原始论文和再分发许可仍需发布者补充核实；当前本地工作区未包含早期 README 提到的 `datasets/raw/*/DOWNLOAD_INFO.md`。
+This release contains the processed inputs used by FreqNiche. Original data contributors retain their attribution and rights. Cite FreqNiche and the original data sources when using these inputs. The source entry for GSE311609 is [NCBI GEO](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE311609). Exact source versions, original publications and redistribution permissions for the other datasets still require verification and documentation by the publisher. The current workspace does not include the `datasets/raw/*/DOWNLOAD_INFO.md` files mentioned in an earlier README.
 
-Hugging Face 页面目前标注的 Apache-2.0 不能单独证明第三方数据全部采用该许可；本说明不为上游数据授予新的许可。发布者应在核对各来源条款后更新数据卡元数据和逐数据集的许可说明。
+The Apache-2.0 label currently shown on Hugging Face does not by itself establish that all third-party datasets use that license. This guide grants no new rights to upstream data. The publisher should verify source terms and update the dataset-card metadata and per-dataset licensing information accordingly. The repository's MIT license applies to original FreqNiche code and does not override data-source terms.
 
-下载 API 与数据卡格式参考：[Hub 下载文档](https://huggingface.co/docs/huggingface_hub/guides/download)、[Dataset Cards](https://huggingface.co/docs/hub/datasets-cards)。
+Download API and dataset-card references: [Hub download guide](https://huggingface.co/docs/huggingface_hub/guides/download) and [Dataset Cards](https://huggingface.co/docs/hub/datasets-cards).

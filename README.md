@@ -5,6 +5,7 @@
 </p>
 
 <p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT license for original FreqNiche code"></a>
   <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.10-3776AB?logo=python&amp;logoColor=white" alt="Python 3.10"></a>
   <a href="https://pytorch.org/"><img src="https://img.shields.io/badge/PyTorch-2.13.0-EE4C2C?logo=pytorch&amp;logoColor=white" alt="PyTorch 2.13.0"></a>
   <a href="https://scanpy.readthedocs.io/"><img src="https://img.shields.io/badge/Scanpy-1.11.5-4C9A2A" alt="Scanpy 1.11.5"></a>
@@ -262,6 +263,7 @@ FreqNiche/
 ├── train.py                 # Editable Train/Validation configuration
 ├── requirements.txt         # Main Python environment snapshot
 ├── pyproject.toml           # Package metadata and dependency ranges
+├── LICENSE                  # MIT license for original FreqNiche code
 ├── configs/                 # Dataset and model configurations
 ├── src/freqniche_st/         # Data, graph, model and training implementation
 ├── src/benchmark/            # Benchmark adapters and evaluation utilities
@@ -297,3 +299,18 @@ We also thank the original dataset contributors for making their spatial
 transcriptomics data available, and [Hugging Face](https://huggingface.co/)
 for hosting the processed datasets. Upstream code and data retain their
 respective licenses and attribution requirements.
+
+## 📄 License
+
+Original FreqNiche code is released under the **MIT License**. See
+[LICENSE](LICENSE) for the full terms.
+
+Third-party code and portions derived from it remain subject to the applicable
+upstream licenses and copyright notices. In particular, the vendored
+[BANKSY implementation](baselines/Banksy_py/LICENSE.md) is licensed under
+GPL-3.0, and [GraphST](baselines/GraphST/LICENSE.md) under AGPL-3.0.
+The root MIT license does not replace these terms. Other baseline licenses
+are retained alongside their implementations in `baselines/`.
+
+Datasets and pathway collections are governed by their respective source
+terms; see the [data guide](datasets/README.md) and accompanying source notices.
